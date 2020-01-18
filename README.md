@@ -1,6 +1,6 @@
 # elastebsearch
 
-Quick and dirty Elasticsearch Firefox intergration.
+Full text searches for all web pages you visit with Elasticsearch.
 
 ## Setup
 

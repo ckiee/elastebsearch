@@ -1,5 +1,5 @@
 {
-    "description": "Search your history with Elasticsearch. This was made in one day so it is probably quite insecure.\nhttps://github.com/ronthecookie/elastebsearch",
+    "description": "Full text searches for all web pages you visit with Elasticsearch. This was made in one day so it is probably quite insecure.\nhttps://github.com/ronthecookie/elastebsearch",
     "manifest_version": 2,
     "name": "Elastebsearch Client",
     "version": "1.0",
