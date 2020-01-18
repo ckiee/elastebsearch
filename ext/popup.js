@@ -1,3 +1,12 @@
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 const input = document.querySelector("input");
 let data;
 browser.storage.sync
@@ -26,10 +35,14 @@ input.addEventListener("input", async e => {
             .map(hit => hit._source)
             .map(
                 hit =>
-                    `<li><a href="${encodeURI(hit.url)}">${hit.title}</a></li>`
+                    `<li><a href="${encodeURI(hit.url)}">${escapeHTML(
+                        hit.title
+                    )}</a></li>`
             )
             .join("\n");
     } catch (error) {
-        document.querySelector("ul").innerHTML = `<li>${error}</li>`;
+        document.querySelector("ul").innerHTML = `<li>${escapeHTML(
+            error
+        )}</li>`;
     }
 });
