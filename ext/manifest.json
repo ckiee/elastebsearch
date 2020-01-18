@@ -1,0 +1,41 @@
+{
+    "description": "Search your history with Elasticsearch. This was made in one day so it is probably quite insecure.\nhttps://github.com/ronthecookie/elastebsearch",
+    "manifest_version": 2,
+    "name": "Elastebsearch Client",
+    "version": "1.0",
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["sendToServer.js"]
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "elastebsearch.me@ronthecookie.me",
+            "strict_min_version": "42.0"
+        }
+    },
+
+    "background": {
+        "scripts": ["bg.js"]
+    },
+    "browser_action": {
+        "default_title": "Elastebsearch",
+        "default_popup": "popup.html"
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "windows": "Ctrl+E",
+                "mac": "Command+E",
+                "chromeos": "Ctrl+E",
+                "linux": "Ctrl+E"
+            }
+        }
+    },
+    "options_ui": {
+        "page": "options.html"
+    },
+    "permissions": ["storage"]
+}
