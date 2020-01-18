@@ -4,7 +4,9 @@ import cors from "cors";
 import morgan from "morgan";
 const app = express();
 const port = process.env.PORT || 3000;
-const client = new Client({ node: "http://localhost:9200" });
+const client = new Client({
+    node: process.env.ELASTIC_URL || "http://localhost:9200"
+});
 const authKey = process.env.AUTH_KEY || "?";
 if (authKey == "?")
     console.log("!!!! Please set AUTH_KEY to restrict access !!!!");
